@@ -13,7 +13,7 @@ echo "<html>
   <head>
   </head>
   <body>
-    <p>Hello, this is a test index.html file for web_static deployment.</p>
+    <p>Hello, welcome here.</p>
   </body>
 </html>" | sudo tee /data/web_static/releases/test/index.html
 
