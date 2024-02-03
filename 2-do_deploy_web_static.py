@@ -7,13 +7,20 @@ using the function do_deploy
 
 from fabric.api import put, run, env
 from os.path import exists
+
 env.hosts = ['18.206.197.202', '54.237.125.178']
 
 def do_deploy(archive_path):
     """
-    Deploy the archive to the web servers
+    Deploy the archive to the web servers.
+
+    Args:
+        archive_path (str): The path to the archive file to be deployed.
+
+    Returns:
+        bool: True if deployment is successful, False otherwise.
     """
-    if not path.exists(archive_path):
+    if not exists(archive_path):
         return False
 
     try:
@@ -31,6 +38,7 @@ def do_deploy(archive_path):
         run('rm -rf /data/web_static/current')
         run('ln -s /data/web_static/releases/{}/ /data/web_static/current'
             .format(archive_no_ext))
-         return True
-    except:
+        return True
+    except Exception as e:
+        print(f"Error during deployment: {e}")
         return False
