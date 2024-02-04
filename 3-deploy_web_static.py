@@ -7,8 +7,7 @@ using the function deploy
 
 from fabric.api import run, env
 from os import path
-from 2-do_deploy_web_static import do_deploy
-from 1-pack_web_static.py import do_pack
+from 2-do_deploy_web_static import do_deploy, do_pack
 env.hosts = ['18.206.197.202', '54.237.125.178']
 
 
