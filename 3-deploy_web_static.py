@@ -5,15 +5,18 @@ that creates and distributes an archive to my web servers,
 using the function deploy
 """
 
-from fabric.api import run, env
-from os import path
-from 2-do_deploy_web_static import do_deploy, do_pack
+from fabric.api import env, local, put, run
+from datetime import datetime
+from os.path import exists, isdir
 env.hosts = ['18.206.197.202', '54.237.125.178']
 
 def do_pack():
 
     """
     Generates a .tgz archive from the contents of the web_static folder
+
+    Return:
+        Archieve path if successful
     """
     time = datetime.now()
     archive = 'web_static_' + time.strftime("%Y%m%d%H%M%S") + '.tgz'
