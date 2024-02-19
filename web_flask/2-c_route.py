@@ -2,7 +2,7 @@
 """
 A script that starts a Flask web application
 """
-from flask import Flask, escape
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -19,8 +19,7 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def display_text(text):
     """returns C with the passed variable"""
-    text_with_spaces = escape(text.replace('_', ' '))
-    return f'C {text_with_spaces}'
+    return 'C ' + text.replace('_', ' ')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
