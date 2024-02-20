@@ -25,7 +25,7 @@ def display_text(text):
 @app.route('/python/<text>', strict_slashes=False)
 def python_is_cool(text="is cool"):
     """returns python with the passed variable"""
-    return 'C ' + text.replace('_', ' ')
+    return 'Python ' + text.replace('_', ' ')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
